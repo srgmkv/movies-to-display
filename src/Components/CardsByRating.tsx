@@ -9,27 +9,29 @@ interface CardsByRating {
 }
 
 const CardsByRating = ({ moviesList, sortedByRatingType }: CardsByRating) => {
-  const newlist = moviesList.map(item=> {
-        return  item.rating ? item : {...item, rating: 0}
+  const newlist = moviesList.map(item => {
+    return item.rating ? item : { ...item, rating: 0 }
   })
   console.log('newlist', newlist)
-  
-  
-  
+
+
+
   const sortedByRating = sortedByRatingType === "asc" ?
-  newlist.sort((a, b) => a.rating - b.rating) :
-  newlist.sort((a, b) => b.rating - a.rating)
+    newlist.sort((a, b) => a.rating - b.rating) :
+    newlist.sort((a, b) => b.rating - a.rating)
 
   return (
-    <div className="cards">
-      {sortedByRating && sortedByRating.map(item =>
-        <MovieItem
-          key={item.id}
-          localName={item.localized_name}
-          name={item.name}
-          rating={item.rating}
-          id={item.id}
-        />)}
+    <div className="sorted">
+      <div className="cards">
+        {sortedByRating && sortedByRating.map(item =>
+          <MovieItem
+            key={item.id}
+            localName={item.localized_name}
+            name={item.name}
+            rating={item.rating}
+            id={item.id}
+          />)}
+      </div>
     </div>
   )
 

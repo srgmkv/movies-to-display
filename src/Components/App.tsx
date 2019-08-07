@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import { connect } from 'react-redux'
 import { IState } from '../interfaces'
-import MovieList from '../Containers/MovieList'
+import MoviesList from '../Containers/MoviesList'
 import Modal from '../Containers/Modal'
 
 interface IModal {
@@ -13,7 +13,7 @@ const App = ({ isModalShown }: IModal) => {
       return (
       <div className="App">
          <Header modalStatus={isModalShown}/>
-         {!isModalShown ? <MovieList /> : <Modal />}
+         {!isModalShown ? <MoviesList /> : <Modal />}
       </div>
    )
 
@@ -24,4 +24,3 @@ const mapStateToProps = (state: IState): IModal => ({
 })
 
 export default connect(mapStateToProps)(App)
-

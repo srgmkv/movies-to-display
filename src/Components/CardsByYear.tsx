@@ -42,7 +42,7 @@ const CardsByYear = ({ moviesList, sortedByYearType }: CardsByYear) => {
 
       {sortedYears.map(year => {
         return (
-          <div className="sort-by-year-block" key={year}>
+          <div className="sorted" key={year}>
             <div className="year">{year}</div>
             <CardsInYearBlock moviesList={moviesList} year={year} />
           </div>

@@ -1,0 +1,54 @@
+.sorted {
+  background: rgb(255, 255, 255);
+  margin: 5px auto;
+  padding: 1px;
+
+  .year {
+    background: rgb(233, 199, 155);
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 2px;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+
+    .movie-card {
+      display: flex;
+      background: #a5e9a5;
+      margin: auto;
+      width: 70%;
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+      &:hover {
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.9), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+      }
+      @media screen and (max-width: 450px) {
+        width: 100%;
+      }
+
+      .names-block {
+        padding: 5px;
+
+        margin-bottom: 2px;
+        flex: 1;
+        background-color: rgb(255, 255, 255);
+
+        .name {
+          margin-top: 5px;
+          font-size: 0.75em;
+        }
+      }
+      .rating {
+        display: flex;
+        margin: auto;
+        color: rgb(3, 36, 66);
+        font-weight: bold;
+        div {
+          padding: 7px;
+        }
+      }
+    }
+  }
+}

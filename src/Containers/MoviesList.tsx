@@ -5,6 +5,7 @@ import { getMoviesData } from '../actions/fetching-actions'
 import { ISort, SortingActions } from '../actions/sorting-actions'
 import CardsByRating from '../Components/CardsByRating'
 import CardsByYear from '../Components/CardsByYear'
+import './MoviesList.scss'
 
 interface State {
   errMessage: string,
@@ -56,7 +57,7 @@ class MovieList extends React.Component<Props> {
     const { errMessage, moviesList, sort } = this.props
     return (
       <>
-        {errMessage && <p>{errMessage}</p>}
+        {errMessage && <p className="error">{errMessage}</p>}
         {this.getSortedMovies(moviesList, sort)}
       </>
     )
