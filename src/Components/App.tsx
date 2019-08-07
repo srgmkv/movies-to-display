@@ -8,7 +8,7 @@ import Modal from '../Containers/Modal'
 interface IModal {
    isModalShown: boolean
 }
-
+//Компонент -точка входа 
 const App = ({ isModalShown }: IModal) => {
       return (
       <div className="App">

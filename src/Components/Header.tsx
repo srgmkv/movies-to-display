@@ -6,7 +6,7 @@ import { SortingActions } from '../actions/sorting-actions'
 type Modal = { modalStatus: boolean }
 
 const Header = ({ modalStatus }: Modal) => {
-  const status = modalStatus ? ' disabled' : ''
+  const status = modalStatus ? ' disabled' : '' // здесь добавляется класс к хэдеру для его затемнения при модальном окне
   return (
     <div className={`header${status}`}>
 

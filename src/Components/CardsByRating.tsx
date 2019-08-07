@@ -7,16 +7,16 @@ interface CardsByRating {
   sortedByRatingType: string
 
 }
-
+//Компонент рендерит список фильмов при сортировке по рейтингу
 const CardsByRating = ({ moviesList, sortedByRatingType }: CardsByRating) => {
+
+  // здесь создаем новый  массив фильмов, где меняем false рейтинг на явный ноль для точной сортировки
   const newlist = moviesList.map(item => {
     return item.rating ? item : { ...item, rating: 0 }
   })
-  console.log('newlist', newlist)
 
-
-
-  const sortedByRating = sortedByRatingType === "asc" ?
+  //сортируем массив по рейтингу
+const sortedByRating = sortedByRatingType === "asc" ?
     newlist.sort((a, b) => a.rating - b.rating) :
     newlist.sort((a, b) => b.rating - a.rating)
 

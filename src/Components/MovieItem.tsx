@@ -9,7 +9,7 @@ interface CardProps {
   id: number
   showModal: typeof showModal
 }
-
+//Компонент рендерит карточку фильма для списка фильмов
 const MovieItem = ({ localName, name, rating, id, showModal }: CardProps) => {
 
   return (
