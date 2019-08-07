@@ -10,9 +10,9 @@ interface IModal {
 }
 
 const App = ({ isModalShown }: IModal) => {
-   return (
+      return (
       <div className="App">
-         <Header />
+         <Header modalStatus={isModalShown}/>
          {!isModalShown ? <MovieList /> : <Modal />}
       </div>
    )

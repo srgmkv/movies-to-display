@@ -3,28 +3,32 @@ import './Header.scss'
 import Button from '../Containers/Button'
 import { SortingActions } from '../actions/sorting-actions'
 
-const Header = () => {
+type Modal = {modalStatus: boolean}
+
+const Header = ({ modalStatus }: Modal) => {
+  const status = modalStatus ? ' disabled' : ''
   return (
-    <div className="header">
+    <div className={`header${status}`}>
 
       <div className="sort">
-        Сортировка
+        <span className="sorting-span">Сортировка</span>
         <div className="sort-by-year">
-          по году:
+
+          <span>по году:</span>
           <Button sort={SortingActions.SORT_BY_YEAR_ASC}>
-            Фыс
+
           </Button>
           <Button sort={SortingActions.SORT_BY_YEAR_DESC}>
-            Desc
+
           </Button>
         </div>
         <div className="sort-by-rating">
-          по рейтингу:
+          <span>по рейтингу:</span>
           <Button sort={SortingActions.SORT_BY_RATING_ASC}>
-            Asc
+
           </Button>
           <Button sort={SortingActions.SORT_BY_RATING_DESC}>
-            Desc
+
           </Button>
         </div>
       </div>

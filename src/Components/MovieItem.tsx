@@ -20,7 +20,7 @@ const MovieItem = ({ localName, name, rating, id, showModal }: CardProps) => {
         <div className="local-name">{localName}</div>
         <div className="name">{name}</div>
       </div>
-      <div className="rating">{rating}</div>
+      <div className="rating">{rating ? rating : ''}</div>
     </div>
   )
 }

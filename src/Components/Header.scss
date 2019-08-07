@@ -1,17 +1,43 @@
-.header  {
+.header {
   height: 40px;
-  background: rgb(64, 23, 247);
-}
-
-.sort{
-  display: flex;
-}
-
-.sort-by-year, .sort-by-rating{
-  display: flex;
+  background: rgb(108, 240, 108);
+  margin-bottom: 7px;
   
+}
+.disabled  {
+  pointer-events: none;
+  opacity: 0.1;
+}
+.sort {
+  display: flex;
+  justify-content: flex-end;
+  border: 1px dotted  greenyellow;
+  .sorting-span {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 6px;
+    padding-right: 15px;
+  }
+  span{
+    font-size: 0.8em;
+    white-space: pre;
+  }
+}
+
+.sort-by-year,
+.sort-by-rating {
+  display: flex;
 }
 
 .selected {
   color: rgb(240, 6, 6);
+}
+
+.sort-button {
+  margin: 5px 3px ;
+  img {
+    
+    width: 25px;
+    height: 25px;
+  }
 }
