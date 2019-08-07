@@ -1,28 +1,28 @@
 import React from 'react'
 import './Header.scss'
 import Button from '../Containers/Button'
-import { VisibilityFilters } from '../actions/filter-actions'
+import { SortingActions } from '../actions/sorting-actions'
 
 const Header = () => {
   return (
     <div className="header">
 
-      <div className="filter">
-        <div className="filter-by-year">
+      <div className="sort">
+        <div className="sort-by-year">
           by year
-          <Button filter={VisibilityFilters.FILTER_BY_YEAR_ASC}>
+          <Button sort={SortingActions.SORT_BY_YEAR_ASC}>
             Asc
           </Button>
-          <Button filter={VisibilityFilters.FILTER_BY_YEAR_DESC}>
+          <Button sort={SortingActions.SORT_BY_YEAR_DESC}>
             Desc
           </Button>
         </div>
-        <div className="filter-by-rating">
+        <div className="sort-by-rating">
           by rating
-          <Button filter={VisibilityFilters.FILTER_BY_RATING_ASC}>
+          <Button sort={SortingActions.SORT_BY_RATING_ASC}>
             Asc
           </Button>
-          <Button filter={VisibilityFilters.FILTER_BY_RATING_DESC}>
+          <Button sort={SortingActions.SORT_BY_RATING_DESC}>
             Desc
           </Button>
         </div>

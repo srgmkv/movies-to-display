@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 import {moviesList, fetchingStatus} from './fetchingResults'
-import visibilityFilter from './visibilityFilter'
+import sortingType from './sortingType'
 
 export default combineReducers({
   moviesList,
   fetchingStatus,
-  visibilityFilter
+  sortingType
 })

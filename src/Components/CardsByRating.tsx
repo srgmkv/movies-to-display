@@ -2,12 +2,12 @@ import React from 'react'
 import { IMovieItem } from '../interfaces'
 import MovieItem from './MovieItem'
 
-interface CardListProps {
+interface CardsByRating {
   moviesList: IMovieItem[]
  
 }
 
-const CardsByRating = ({ moviesList }: CardListProps) => {
+const CardsByRating = ({ moviesList }: CardsByRating) => {
  return (
     <div className="cards">
       {moviesList && moviesList.map(item =>

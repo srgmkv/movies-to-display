@@ -2,13 +2,13 @@ import React from 'react'
 import { IMovieItem, IState } from '../interfaces'
 import { connect } from 'react-redux'
 import { getMoviesData } from '../actions/fetching-actions'
-import { IFilter } from '../actions/filter-actions'
+import { ISort } from '../actions/sort-actions'
 import Cards from '../Components/Cards'
 
 interface State {
   errMessage: string,
   moviesList: IMovieItem[]
-  filter: IFilter
+  sort: ISort
 }
 
 interface Props extends State {
@@ -17,7 +17,7 @@ interface Props extends State {
 const mapStateToProps = (state: IState): State => ({
   moviesList: state.moviesList,
   errMessage: state.fetchingStatus.errMessage,
-  filter: state.visibilityFilter
+  sort: state.sortingType
   
 })
 
@@ -26,7 +26,7 @@ class MovieList extends React.Component<Props> {
     this.props.getMoviesData();
   }
 
-  getFilteredMovies = () => {
+  getSortedMovies = () => {
     
   }
 
@@ -36,7 +36,7 @@ class MovieList extends React.Component<Props> {
     const { errMessage, moviesList } = this.props
     const years = moviesList.length > 0 ? moviesList.map((item: IMovieItem) => item.year)
 
-      .filter((v, i, a) => a.indexOf(v) === i)
+      .sort((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b) : [];
     console.log('years', years)
 

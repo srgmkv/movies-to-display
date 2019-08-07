@@ -1,9 +1,9 @@
-import { IFilter } from './actions/filter-actions'
+import { ISort } from './actions/sorting-actions'
 
 export interface IState {
   moviesList: IMovieItem[]
   fetchingStatus: IFetchingStatus
-  visibilityFilter: IFilter
+  sortingType: ISort
 }
 
 export interface IFetchingStatus {

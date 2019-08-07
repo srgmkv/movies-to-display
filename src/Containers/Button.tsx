@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setVisibilityFilter, IFilter } from '../actions/filter-actions'
+import { setsortingType, ISort } from '../actions/sorting-actions'
 import { IState } from '../interfaces'
 
 interface Props extends OwnProps{
@@ -9,14 +9,14 @@ interface Props extends OwnProps{
   }
 interface OwnProps {
   children: React.ReactNode | string
-  filter: IFilter
+  sort: ISort
 }
 
 
 const Button = ({ active, onClick, children }:Props ) => {
   const selected = active ? ' selected' : ''
   return (
-    <div className={"filter-button" + selected}
+    <div className={"sort-button" + selected}
       onClick={onClick}
     >
       {children}
@@ -25,11 +25,11 @@ const Button = ({ active, onClick, children }:Props ) => {
 }
 
 const mapStateToProps = (state: IState, ownProps: OwnProps): { active: boolean } => ({
-  active: ownProps.filter === state.visibilityFilter
+  active: ownProps.sort === state.sortingType
 })
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnProps): any => ({
-  onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
+  onClick: () => dispatch(setsortingType(ownProps.sort))
 })
 
 export default connect(

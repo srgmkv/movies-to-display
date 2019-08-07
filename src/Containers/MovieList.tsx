@@ -2,14 +2,14 @@ import React from 'react'
 import { IMovieItem, IState } from '../interfaces'
 import { connect } from 'react-redux'
 import { getMoviesData } from '../actions/fetching-actions'
-import { IFilter, VisibilityFilters } from '../actions/filter-actions'
+import { ISort, SortingActions } from '../actions/sorting-actions'
 import CardsByRating from '../Components/CardsByRating'
 import CardsByYear from '../Components/CardsByYear'
 
 interface State {
   errMessage: string,
   moviesList: IMovieItem[]
-  filter: IFilter
+  sort: ISort
 }
 
 interface Props extends State {
@@ -18,7 +18,7 @@ interface Props extends State {
 const mapStateToProps = (state: IState): State => ({
   moviesList: state.moviesList,
   errMessage: state.fetchingStatus.errMessage,
-  filter: state.visibilityFilter
+  sort: state.sortingType
 
 })
 
@@ -27,41 +27,41 @@ class MovieList extends React.Component<Props> {
     this.props.getMoviesData();
   }
 
-  getFilteredMovies = (list: IMovieItem[], sortType: IFilter) => {
+  getSortedMovies = (list: IMovieItem[], sortType: ISort) => {
     switch (sortType) {
-      case VisibilityFilters.FILTER_BY_YEAR_ASC:
+      case SortingActions.SORT_BY_YEAR_ASC:
         return (
           <CardsByYear moviesList={list} sortedByYearType="asc" />
         )
 
-      case VisibilityFilters.FILTER_BY_YEAR_DESC:
+      case SortingActions.SORT_BY_YEAR_DESC:
         return (
           <CardsByYear moviesList={list} sortedByYearType="desc" />
         )
 
-      case VisibilityFilters.FILTER_BY_RATING_ASC:
+      case SortingActions.SORT_BY_RATING_ASC:
         const sortedByRatingAsc = list.sort((a, b) => a.rating - b.rating)
         return <CardsByRating moviesList={sortedByRatingAsc} />
 
-      case VisibilityFilters.FILTER_BY_RATING_DESC:
+      case SortingActions.SORT_BY_RATING_DESC:
         const sortedByRartingDesc = list.sort((a, b) => b.rating - a.rating)
         return <CardsByRating moviesList={sortedByRartingDesc} />
 
       default:
-        throw new Error('Unknown filter: ' + sortType)
+        throw new Error('Unknown sort: ' + sortType)
     }
   }
 
 
 
   render() {
-    const { errMessage, moviesList, filter } = this.props
+    const { errMessage, moviesList, sort } = this.props
 
     //console.log('years', years)
 
     return (
       <>{errMessage && <p>{errMessage}</p>}
-        {this.getFilteredMovies(moviesList, filter)}
+        {this.getSortedMovies(moviesList, sort)}
       </>
 
     )

@@ -2,18 +2,24 @@ import React from 'react'
 import { IMovieItem } from '../interfaces'
 import MovieItem from './MovieItem'
 
-interface CardListProps {
+interface CardsInYearBlock {
   moviesList: IMovieItem[]
-  year?: number
-  sortedByYearType?: string
+  year: number
 }
 
-const CardsInYearBlock = ({ moviesList, year }: CardListProps) => {
+interface CardsByYear {
+  moviesList: IMovieItem[]
+  sortedByYearType: string
+}
+
+
+const CardsInYearBlock = ({ moviesList, year }: CardsInYearBlock) => {
   return (
     <div className="cards">
       {moviesList.filter(item => item.year === year)
         .map(item =>
           <MovieItem
+            key={item.id}
             localName={item.localized_name}
             name={item.name}
             rating={item.rating}
@@ -22,22 +28,22 @@ const CardsInYearBlock = ({ moviesList, year }: CardListProps) => {
   )
 }
 
-const CardsByYear = ({ moviesList, sortedByYearType }: CardListProps) => {
+const CardsByYear = ({ moviesList, sortedByYearType }: CardsByYear) => {
 
   const years = moviesList.length > 0 ? moviesList.map((item: IMovieItem) => item.year)
     .filter((v, i, a) => a.indexOf(v) === i) : [];
-   
-  let sortedYears: number[] | undefined = sortedByYearType === "asc" ?
-     years.sort((a, b) => a - b):
-     years.sort((a, b) => b - a)
-  
+
+  const sortedYears = sortedByYearType === "asc" ?
+    years.sort((a, b) => a - b) :
+    years.sort((a, b) => b - a)
+
   // 
   return (
     <div className="movie-list">
-      
+
       {sortedYears.map(year => {
         return (
-          <div className="sort-by-year-block">
+          <div className="sort-by-year-block" key={year}>
             <div className="year">{year}</div>
             <CardsInYearBlock moviesList={moviesList} year={year} />
           </div>
