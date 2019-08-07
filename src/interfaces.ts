@@ -4,6 +4,12 @@ export interface IState {
   moviesList: IMovieItem[]
   fetchingStatus: IFetchingStatus
   sortingType: ISort
+  modal: IModal
+}
+
+interface IModal {
+  isShown: boolean
+  id: number | null
 }
 
 export interface IFetchingStatus {

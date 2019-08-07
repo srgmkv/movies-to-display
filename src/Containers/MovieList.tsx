@@ -19,7 +19,6 @@ const mapStateToProps = (state: IState): State => ({
   moviesList: state.moviesList,
   errMessage: state.fetchingStatus.errMessage,
   sort: state.sortingType
-
 })
 
 class MovieList extends React.Component<Props> {
@@ -40,30 +39,26 @@ class MovieList extends React.Component<Props> {
         )
 
       case SortingActions.SORT_BY_RATING_ASC:
-        const sortedByRatingAsc = list.sort((a, b) => a.rating - b.rating)
-        return <CardsByRating moviesList={sortedByRatingAsc} />
+        return (
+          <CardsByRating moviesList={list} sortedByRatingType="asc" />
+        )
 
       case SortingActions.SORT_BY_RATING_DESC:
-        const sortedByRartingDesc = list.sort((a, b) => b.rating - a.rating)
-        return <CardsByRating moviesList={sortedByRartingDesc} />
-
+        return (
+          <CardsByRating moviesList={list} sortedByRatingType="desc" />
+        )
       default:
         throw new Error('Unknown sort: ' + sortType)
     }
   }
 
-
-
   render() {
     const { errMessage, moviesList, sort } = this.props
-
-    //console.log('years', years)
-
     return (
-      <>{errMessage && <p>{errMessage}</p>}
+      <>
+        {errMessage && <p>{errMessage}</p>}
         {this.getSortedMovies(moviesList, sort)}
       </>
-
     )
   }
 }

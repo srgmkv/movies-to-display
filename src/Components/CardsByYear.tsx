@@ -12,7 +12,6 @@ interface CardsByYear {
   sortedByYearType: string
 }
 
-
 const CardsInYearBlock = ({ moviesList, year }: CardsInYearBlock) => {
   return (
     <div className="cards">
@@ -23,6 +22,7 @@ const CardsInYearBlock = ({ moviesList, year }: CardsInYearBlock) => {
             localName={item.localized_name}
             name={item.name}
             rating={item.rating}
+            id={item.id}
           />)}
     </div>
   )
@@ -37,7 +37,6 @@ const CardsByYear = ({ moviesList, sortedByYearType }: CardsByYear) => {
     years.sort((a, b) => a - b) :
     years.sort((a, b) => b - a)
 
-  // 
   return (
     <div className="movie-list">
 
