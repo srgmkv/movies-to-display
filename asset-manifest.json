@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/movies-to-desktop/static/css/main.e05cc453.chunk.css",
+    "main.js": "/movies-to-desktop/static/js/main.9c97aaa3.chunk.js",
+    "main.js.map": "/movies-to-desktop/static/js/main.9c97aaa3.chunk.js.map",
+    "runtime~main.js": "/movies-to-desktop/static/js/runtime~main.e28a6c2e.js",
+    "runtime~main.js.map": "/movies-to-desktop/static/js/runtime~main.e28a6c2e.js.map",
+    "static/js/2.50b5f2a3.chunk.js": "/movies-to-desktop/static/js/2.50b5f2a3.chunk.js",
+    "static/js/2.50b5f2a3.chunk.js.map": "/movies-to-desktop/static/js/2.50b5f2a3.chunk.js.map",
+    "index.html": "/movies-to-desktop/index.html",
+    "precache-manifest.1f67b0edc8ce9c6ddb6e3f339681c825.js": "/movies-to-desktop/precache-manifest.1f67b0edc8ce9c6ddb6e3f339681c825.js",
+    "service-worker.js": "/movies-to-desktop/service-worker.js",
+    "static/css/main.e05cc453.chunk.css.map": "/movies-to-desktop/static/css/main.e05cc453.chunk.css.map",
+    "static/media/Modal.scss": "/movies-to-desktop/static/media/back1.b14aecc1.svg",
+    "static/media/down-red.svg": "/movies-to-desktop/static/media/down-red.3d5f02f9.svg",
+    "static/media/down.svg": "/movies-to-desktop/static/media/down.9b396690.svg",
+    "static/media/github2.svg": "/movies-to-desktop/static/media/github2.bf81ddad.svg",
+    "static/media/up-red.svg": "/movies-to-desktop/static/media/up-red.92da3763.svg",
+    "static/media/up.svg": "/movies-to-desktop/static/media/up.67dc6f42.svg"
+  }
+}
