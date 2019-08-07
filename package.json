@@ -29,7 +29,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://srgmkv.github.io/movies-to-desktop",
+  "homepage": "https://srgmkv.github.io/movies-to-display",
   "eslintConfig": {
     "extends": "react-app"
   },
