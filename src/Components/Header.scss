@@ -1,3 +1,4 @@
+$radius: 4px;
 .header {
   background: rgb(108, 240, 108);
   box-shadow: 0px 2px 0px -1px rgba(0, 0, 0, 0.1), 0px 2px 3px 0px rgba(0, 0, 0, 0.14),
@@ -6,6 +7,8 @@
   color: #555;
   display: flex;
   justify-content: space-between;
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
   a {
     margin: 5px;
     display: flex;
