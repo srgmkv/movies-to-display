@@ -8,6 +8,6 @@
 Приложение будет доступно в браузере по адресу  
  [http://localhost:3000](http://localhost:3000)  
 
- Демо: [Click](https://srgmkv.github.io/movies-to-desktop)  
+ Демо: [Click](https://srgmkv.github.io/movies-to-display)  
 (в демо в Хроме тестовые данные не загрузятся из-за его CORS policy.  
 FF, примеру, все ок)
