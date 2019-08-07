@@ -8,17 +8,18 @@ const Header = () => {
     <div className="header">
 
       <div className="sort">
+        Сортировка
         <div className="sort-by-year">
-          by year
+          по году:
           <Button sort={SortingActions.SORT_BY_YEAR_ASC}>
-            Asc
+            Фыс
           </Button>
           <Button sort={SortingActions.SORT_BY_YEAR_DESC}>
             Desc
           </Button>
         </div>
         <div className="sort-by-rating">
-          by rating
+          по рейтингу:
           <Button sort={SortingActions.SORT_BY_RATING_ASC}>
             Asc
           </Button>

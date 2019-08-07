@@ -1,0 +1,40 @@
+.modal {
+  max-width: 400px;
+  margin: 10px auto 0;
+  background: rgb(236, 184, 159);
+
+  .header {
+    height: auto;
+    display: flex;
+    background-color: rgb(211, 240, 240);
+    padding:  3px;
+    .back {
+      background-image: url(../Images/back1.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 40px;
+      &:hover {
+        background-image: url(../Images/back1-hov.svg);
+      }
+    }
+    .local-name {
+      max-width: 350px;
+      flex: 1;
+      text-align: center;
+      padding: 5px;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  padding: 5px;
+}
+
+.image {
+  margin: 5px;
+}
+img {
+  width: 150px;
+}
