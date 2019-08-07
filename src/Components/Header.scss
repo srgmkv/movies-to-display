@@ -1,0 +1,17 @@
+.header  {
+  height: 40px;
+  background: rgb(64, 23, 247);
+}
+
+.filter{
+  display: flex;
+}
+
+.filter-by-year, .filter-by-rating{
+  display: flex;
+  
+}
+
+.selected {
+  color: rgb(240, 6, 6);
+}
