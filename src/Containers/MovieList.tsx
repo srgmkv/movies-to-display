@@ -1,53 +1,72 @@
 import React from 'react'
-import { IMovieItem } from '../interfaces'
+import { IMovieItem, IState } from '../interfaces'
 import { connect } from 'react-redux'
 import { getMoviesData } from '../actions/fetching-actions'
-import Cards from '../Components/Cards'
+import { IFilter, VisibilityFilters } from '../actions/filter-actions'
+import CardsByRating from '../Components/CardsByRating'
+import CardsByYear from '../Components/CardsByYear'
 
 interface State {
   errMessage: string,
   moviesList: IMovieItem[]
+  filter: IFilter
 }
 
 interface Props extends State {
   getMoviesData: typeof getMoviesData
 }
+const mapStateToProps = (state: IState): State => ({
+  moviesList: state.moviesList,
+  errMessage: state.fetchingStatus.errMessage,
+  filter: state.visibilityFilter
+
+})
 
 class MovieList extends React.Component<Props> {
   componentDidMount() {
     this.props.getMoviesData();
   }
 
-  render() {
-    const { errMessage, moviesList } = this.props
-    const years = moviesList.length > 0 ? moviesList.map((item: IMovieItem) => item.year)
+  getFilteredMovies = (list: IMovieItem[], sortType: IFilter) => {
+    switch (sortType) {
+      case VisibilityFilters.FILTER_BY_YEAR_ASC:
+        return (
+          <CardsByYear moviesList={list} sortedByYearType="asc" />
+        )
 
-      .filter((v, i, a) => a.indexOf(v) === i)
-      .sort((a, b) => a - b) : [];
-    console.log('years', years)
+      case VisibilityFilters.FILTER_BY_YEAR_DESC:
+        return (
+          <CardsByYear moviesList={list} sortedByYearType="desc" />
+        )
+
+      case VisibilityFilters.FILTER_BY_RATING_ASC:
+        const sortedByRatingAsc = list.sort((a, b) => a.rating - b.rating)
+        return <CardsByRating moviesList={sortedByRatingAsc} />
+
+      case VisibilityFilters.FILTER_BY_RATING_DESC:
+        const sortedByRartingDesc = list.sort((a, b) => b.rating - a.rating)
+        return <CardsByRating moviesList={sortedByRartingDesc} />
+
+      default:
+        throw new Error('Unknown filter: ' + sortType)
+    }
+  }
+
+
+
+  render() {
+    const { errMessage, moviesList, filter } = this.props
+
+    //console.log('years', years)
 
     return (
       <>{errMessage && <p>{errMessage}</p>}
-
-        <div className="movie-list">
-          {years.map(year => {
-            return (
-              <div className="sort-by-year-block">
-                <div className="year">{year}</div>
-                <Cards moviesList={moviesList} year={year} />
-              </div>
-            )
-          })}
-        </div>
+        {this.getFilteredMovies(moviesList, filter)}
       </>
 
     )
   }
 }
 
-const mapStateToProps = (state: State): State => ({
-  errMessage: state.errMessage,
-  moviesList: state.moviesList
-})
 
 export default connect(mapStateToProps, { getMoviesData })(MovieList)
