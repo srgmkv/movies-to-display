@@ -9,5 +9,5 @@
  [http://localhost:3000](http://localhost:3000)  
 
  Демо: [Click](https://srgmkv.github.io/movies-to-display)  
-(в демо в Хроме тестовые данные не загрузятся из-за его CORS policy.  
-FF, примеру, все ок)
+(Хром для демо тестовые данные не загрузит из-за его CORS policy.  
+FF загрузит без проблем)
