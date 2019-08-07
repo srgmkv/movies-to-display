@@ -25,7 +25,7 @@ export function getMoviesData():any {
   return (dispatch: any) => {
     dispatch(dataRequested())
 
-    axios("https://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.json")
+    axios("http://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.json")
       .then((payload: any) => dispatch({ type: 'DATA_LOADED', payload }))
       .catch((err: any) => dispatch({ type: 'SERVER_ERRORED', errorData: err }))
   }
