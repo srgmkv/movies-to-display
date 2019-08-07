@@ -18,3 +18,14 @@ body {
   margin: 0 auto;
 }
 
+.error {
+  text-align: center;
+  margin: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  color: rgb(168, 0, 0);
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px dotted rgb(240, 71, 71);
+}
+

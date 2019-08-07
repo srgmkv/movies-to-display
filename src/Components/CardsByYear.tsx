@@ -8,14 +8,36 @@ interface CardsInYearBlock {
 }
 
 interface CardsByYear {
-  moviesList: IMovieItem[]
-  sortedByYearType: string
+  list: IMovieItem[]
+  years: number[]
 }
 
+// Компонент рендерит набор блоков Год, в котором рендерятся компоненты Фильмы.
+// Ему передаем список фильмов из стейта и массив отсорттированных годов.
+const CardsByYear = ({ list, years }: CardsByYear) => {
+
+  return (
+    <div className="movie-list">
+
+      {years.map(year => {
+        return (
+          <div className="sorted" key={year}>
+            <div className="year">{year}</div>
+            <CardsInYearBlock moviesList={list} year={year} />
+          </div>
+        )
+      })}
+
+    </div>
+  )
+}
+
+//Компонент рендерит список фильмов в блоке Год
 const CardsInYearBlock = ({ moviesList, year }: CardsInYearBlock) => {
   return (
     <div className="cards">
       {moviesList.filter(item => item.year === year)
+        .sort((a, b) => a.rating - b.rating)
         .map(item =>
           <MovieItem
             key={item.id}
@@ -28,28 +50,4 @@ const CardsInYearBlock = ({ moviesList, year }: CardsInYearBlock) => {
   )
 }
 
-const CardsByYear = ({ moviesList, sortedByYearType }: CardsByYear) => {
-
-  const years = moviesList.length > 0 ? moviesList.map((item: IMovieItem) => item.year)
-    .filter((v, i, a) => a.indexOf(v) === i) : [];
-
-  const sortedYears = sortedByYearType === "asc" ?
-    years.sort((a, b) => a - b) :
-    years.sort((a, b) => b - a)
-
-  return (
-    <div className="movie-list">
-
-      {sortedYears.map(year => {
-        return (
-          <div className="sorted" key={year}>
-            <div className="year">{year}</div>
-            <CardsInYearBlock moviesList={moviesList} year={year} />
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
-export default CardsByYear;
+export default CardsByYear

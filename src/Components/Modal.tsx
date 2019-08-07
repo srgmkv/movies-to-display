@@ -1,5 +1,4 @@
 import React from 'react'
-import onClickOutside from "react-onclickoutside";
 import { IState, IMovieItem } from '../interfaces'
 import { connect } from 'react-redux'
 import { hideModal } from '../actions/modal-actions'
@@ -14,22 +13,18 @@ interface IModal {
   id: number | null
 }
 
-class Modal extends React.Component<IHideModal> {
+//Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
+const Modal = ({ id, moviesList, hideModal }: IHideModal) => {
+  
+  const [movieItem] = moviesList.filter(item => item.id === id) //берем нужный фильм  по id из стейта
+  const { description, name, localized_name, year, rating, image_url } = movieItem //данные для рендера карточки фильма
 
-  handleClickOutside = () => {
-    this.props.hideModal()
-  };
-
-  render() {
-    const { moviesList, id } = this.props
-    const [movieItem] = moviesList.filter(item => item.id === id)
-    const { description, name, localized_name, year, rating, image_url } = movieItem
-
-    return (
+  return (
+    <div className="overlay" onClick={hideModal}>
       <div className="modal">
         <div className="header">
           <div className="back"
-            onClick={this.props.hideModal} />
+            onClick={hideModal} />
           <div className="local-name">{localized_name}</div>
         </div>
         <div className="info">
@@ -46,8 +41,8 @@ class Modal extends React.Component<IHideModal> {
         </div>
         <div className="description">{description}</div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const mapStateToProps = (state: IState): IModal => ({
@@ -55,5 +50,4 @@ const mapStateToProps = (state: IState): IModal => ({
   id: state.modal.id
 })
 
-const HOC = onClickOutside(Modal)
-export default connect(mapStateToProps, { hideModal })(HOC)
+export default connect(mapStateToProps, { hideModal })(Modal)

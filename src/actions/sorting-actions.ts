@@ -17,12 +17,12 @@ export interface ISortingActions {
 export type ISort = 'SORT_BY_YEAR_ASC' | 'SORT_BY_YEAR_DESC'
   | 'SORT_BY_RATING_ASC' | 'SORT_BY_RATING_DESC'
 
-export interface IActionSetSortingType extends Action {
+export interface IActionsetSortingType extends Action {
   type: 'SET_SORT_TYPE'
   sort: ISort
 }
 
-export function setsortingType(sort: ISort): IActionSetSortingType {
+export function setSortingType(sort: ISort): IActionsetSortingType {
   return {
     type: 'SET_SORT_TYPE',
     sort
