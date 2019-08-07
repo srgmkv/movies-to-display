@@ -31,7 +31,7 @@ if (!active && sort.endsWith('ASC')) {
 }
 
   return (
-    <div className={"sort-button" }
+    <div className={"sort-button"}
       onClick={onClick}
     >
       <img src={ImgUrl} />

@@ -25,7 +25,7 @@ class Modal extends React.Component<IHideModal> {
   render() {
     const { moviesList, id } = this.props
     const [movieItem] = moviesList.filter(item => item.id === id)
-    console.log('movieItem', movieItem)
+    
     const { description, name, localized_name, year, rating, image_url } = movieItem
 
     return (
@@ -43,9 +43,9 @@ class Modal extends React.Component<IHideModal> {
             {image_url && <img src={image_url} />}
           </div>
           <div className="list-info">
-            <div className="">{name}</div>
-            <div className="">Год: <span className="year">{year}</span></div>
-            <div className="">Рейтинг: <span className="rating">{year}</span></div>
+            <div className="name">{name}</div>
+            <div className="year">Год: <span className="year">{year}</span></div>
+            <div className="rating">Рейтинг: <span className="rating">{rating}</span></div>
           </div>
         </div>
         <div className="description">{description}</div>
