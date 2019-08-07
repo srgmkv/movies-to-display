@@ -8,4 +8,4 @@
 Приложение будет доступно в браузере по адресу  
  [http://localhost:3000](http://localhost:3000)   
  
- Демо здесь: [Click](http://srgmkv.github.io/movies-to-desktop) 
+ Демо здесь: [Click](https://srgmkv.github.io/movies-to-desktop) 

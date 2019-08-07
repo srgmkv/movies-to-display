@@ -7,28 +7,29 @@
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "16.8.5",
-    "@types/react-onclickoutside": "^6.7.3",
     "@types/react-redux": "^7.1.1",
     "@types/redux": "^3.6.0",
     "axios": "^0.19.0",
+    "gh-pages": "^2.1.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-onclickoutside": "^6.8.0",
     "react-redux": "^7.1.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.0.1",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-react": "^0.87.3",
     "typescript": "3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://srgmkv.github.io/movies-to-desktop",
   "eslintConfig": {
     "extends": "react-app"
   },
