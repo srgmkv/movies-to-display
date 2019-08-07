@@ -49,10 +49,12 @@ $radius: 8px;
     padding: 5px;
     .image {
       margin: 5px;
-
-      img {
-        width: 150px;
-        border-radius: 8px;
+      span {
+        font-size: 0.7em;
+        img {
+          width: 150px;
+          border-radius: 8px;
+        }
       }
     }
     .list-info {

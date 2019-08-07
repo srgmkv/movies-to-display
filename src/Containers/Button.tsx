@@ -19,29 +19,29 @@ interface OwnProps {
 
 
 const Button = ({ active, sort, onClick }: Props) => {
-let ImgUrl: string;
-if (!active && sort.endsWith('ASC')) {
-  ImgUrl = UpImg
-} else if (!active && sort.endsWith('DESC')){
-  ImgUrl = DownImg
-} else if (active && sort.endsWith('ASC')) {
-  ImgUrl = UpRedImg
-} else {
-  ImgUrl = DownRedImg
-}
-
+  let ImgUrl: string;
+  if (!active && sort.endsWith('ASC')) {
+    ImgUrl = UpImg
+  } else if (!active && sort.endsWith('DESC')) {
+    ImgUrl = DownImg
+  } else if (active && sort.endsWith('ASC')) {
+    ImgUrl = UpRedImg
+  } else {
+    ImgUrl = DownRedImg
+  }
+  const title = sort.endsWith('ASC') ? 'по возрастанию' : 'по убыванию'
   return (
     <div className={"sort-button"}
       onClick={onClick}
     >
-      <img src={ImgUrl} />
+      <img src={ImgUrl} alt='' title={title} />
     </div>
   )
 }
 
-const mapStateToProps = (state: IState, ownProps: OwnProps): { active: boolean , sort: ISort} => ({
+const mapStateToProps = (state: IState, ownProps: OwnProps): { active: boolean, sort: ISort } => ({
   active: ownProps.sort === state.sortingType,
-  sort: ownProps.sort 
+  sort: ownProps.sort
 })
 
 const mapDispatchToProps = (dispatch: any, ownProps: OwnProps): any => ({

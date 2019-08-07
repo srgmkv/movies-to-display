@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
-//import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import React from 'react'
 import onClickOutside from "react-onclickoutside";
 import { IState, IMovieItem } from '../interfaces'
 import { connect } from 'react-redux'
 import { hideModal } from '../actions/modal-actions'
 import './Modal.scss'
-import Image from '../Images/up.svg'
 
 interface IHideModal extends IModal {
   hideModal: typeof hideModal
@@ -40,7 +38,9 @@ class Modal extends React.Component<IHideModal> {
 
         <div className="info">
           <div className="image">
-            {image_url && <img src={image_url} />}
+          <span >
+            {image_url && <img src={image_url} alt={name}/>}
+            </span>
           </div>
           <div className="list-info">
             <div className="name">{name}</div>
