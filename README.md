@@ -6,6 +6,4 @@
 ##### `npm start`  
 
 Приложение будет доступно в браузере по адресу  
- [http://localhost:3000](http://localhost:3000)   
- 
- Демо здесь: [Click](https://srgmkv.github.io/movies-to-desktop) 
+ [http://localhost:3000](http://localhost:3000)  
