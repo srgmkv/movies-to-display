@@ -25,7 +25,7 @@ export function getMoviesData(): any {
   return (dispatch: any) => {
     dispatch(dataRequested())
 
-    const url = "https://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.jso*n"
+    const url = "https://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.json"
     const backupUrl = "https://raw.githubusercontent.com/srgmkv/movies-to-display/master/public/films-backup.json"
 
     //запрашиваем данные с url, если ошибка, то с backupUrl, если ошибка, то обрабатываем ее/записываем,
