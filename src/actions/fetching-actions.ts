@@ -35,7 +35,6 @@ export function getMoviesData(): any {
         axios(backupUrl)
           .then((payload: any) => dispatch({ type: 'DATA_LOADED', payload }))
           .catch((err: any) => dispatch({ type: 'SERVER_ERRORED', errorData: err }))
-
       })
   }
 }
