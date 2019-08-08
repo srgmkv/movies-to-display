@@ -31,8 +31,9 @@ export function getMoviesData(): any {
     //запрашиваем данные с url, если ошибка, то с backupUrl, если ошибка, то обрабатываем ее/записываем,
     axios(url)
       .then((payload: any) => dispatch({ type: 'DATA_LOADED', payload }))
-      .catch(() => axios(backupUrl))
-      .then((payload: any) => dispatch({ type: 'DATA_LOADED', payload }))
-      .catch((err: any) => dispatch({ type: 'SERVER_ERRORED', errorData: err }))
+      .catch((err: any) => {
+        axios(backupUrl).then((payload: any) => dispatch({ type: 'DATA_LOADED', payload }))
+        return dispatch({ type: 'SERVER_ERRORED', errorData: err })
+      })
   }
 }
