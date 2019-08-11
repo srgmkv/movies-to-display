@@ -1,22 +1,22 @@
 import React from 'react'
-import { IMovieItem, IState } from '../interfaces'
+import { IMovieItem, AppState } from '../interfaces'
 import { connect } from 'react-redux'
-import { ISort, SortingActions } from '../actions/sorting-actions'
+import { Sort, SortingActions } from '../actions/sorting-actions'
 import CardsByRating from '../Components/CardsByRating'
 import CardsByYear from '../Components/CardsByYear'
 import './MoviesList.scss'
 
-interface State {
+interface MovieListProps {
   errMessage: string,
   moviesList: IMovieItem[]
-  sort: ISort
+  sort: Sort
 }
 
 //Компонент подготавливает данные для отображения списка фильма с нужной фильтрацией
-const MovieList = ({ moviesList, errMessage, sort }: State) => {
+const MovieList = ({ moviesList, errMessage, sort }: MovieListProps) => {
 
   //ф-я делает нужный компонент по типу сортировки
-  const getSortedMovies = (list: IMovieItem[], sortType: ISort) => {
+  const getSortedMovies = (list: IMovieItem[], sortType: Sort) => {
 
     const years = list.map((item: IMovieItem) => item.year)//массив уникальных годов
       .filter((v, i, a) => a.indexOf(v) === i)
@@ -56,7 +56,7 @@ const MovieList = ({ moviesList, errMessage, sort }: State) => {
   )
 }
 
-const mapStateToProps = (state: IState): State => ({
+const mapStateToProps = (state: AppState): MovieListProps => ({
   moviesList: state.moviesList,
   errMessage: state.fetchingStatus.errMessage,
   sort: state.sortingType

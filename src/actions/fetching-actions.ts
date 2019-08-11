@@ -1,16 +1,17 @@
 import axios from 'axios'
-import { Action } from 'redux'
+import { AnyAction } from 'redux'
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 
-export interface IActionDataRequested extends Action {
+export interface IActionDataRequested {
   type: 'DATA_REQUESTED'
 }
 
-export interface IActionDataLoaded extends Action {
+export interface IActionDataLoaded {
   type: 'DATA_LOADED'
   payload: any
 }
 
-export interface IActionServerErrored extends Action {
+export interface IActionServerErrored {
   type: 'SERVER_ERRORED'
   errorData: any
 }
@@ -21,9 +22,9 @@ export function dataRequested(): IActionDataRequested {
   return { type: 'DATA_REQUESTED' }
 }
 
-export function getMoviesData(): any {
-  return (dispatch: any) => {
-    dispatch(dataRequested())
+export function getMoviesData(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+    //dispatch(dataRequested())
 
     const url = "https://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.json"
     const backupUrl = "https://raw.githubusercontent.com/srgmkv/movies-to-display/master/public/films-backup.json"

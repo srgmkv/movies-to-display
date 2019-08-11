@@ -2,15 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { showModal } from '../actions/modal-actions'
 
-interface CardProps {
+interface MovieItemProps {
   localName: string
   name: string
   rating: number
   id: number
   showModal: typeof showModal
 }
+
 //Компонент рендерит карточку фильма для списка фильмов
-const MovieItem = ({ localName, name, rating, id, showModal }: CardProps) => {
+const MovieItem = ({ localName, name, rating, id, showModal }: MovieItemProps) => {
 
   return (
     <div className="movie-card"

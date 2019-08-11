@@ -1,28 +1,26 @@
-import { Action } from 'redux'
-
-export const SortingActions: ISortingActions = {
+export const SortingActions: SortingActions = {
   SORT_BY_YEAR_ASC: 'SORT_BY_YEAR_ASC',
   SORT_BY_YEAR_DESC: 'SORT_BY_YEAR_DESC',
   SORT_BY_RATING_ASC: 'SORT_BY_RATING_ASC',
   SORT_BY_RATING_DESC: 'SORT_BY_RATING_DESC'
 }
 
-export interface ISortingActions {
+export interface SortingActions {
   SORT_BY_YEAR_ASC: 'SORT_BY_YEAR_ASC',
   SORT_BY_YEAR_DESC: 'SORT_BY_YEAR_DESC',
   SORT_BY_RATING_ASC: 'SORT_BY_RATING_ASC',
   SORT_BY_RATING_DESC: 'SORT_BY_RATING_DESC'
 }
 
-export type ISort = 'SORT_BY_YEAR_ASC' | 'SORT_BY_YEAR_DESC'
+export type Sort = 'SORT_BY_YEAR_ASC' | 'SORT_BY_YEAR_DESC'
   | 'SORT_BY_RATING_ASC' | 'SORT_BY_RATING_DESC'
 
-export interface IActionsetSortingType extends Action {
+export interface IActionSetSortingType {
   type: 'SET_SORT_TYPE'
-  sort: ISort
+  sort: Sort
 }
 
-export function setSortingType(sort: ISort): IActionsetSortingType {
+export function setSortingType(sort: Sort): IActionSetSortingType {
   return {
     type: 'SET_SORT_TYPE',
     sort

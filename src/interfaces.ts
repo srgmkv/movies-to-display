@@ -1,9 +1,9 @@
-import { ISort } from './actions/sorting-actions'
+import { Sort } from './actions/sorting-actions'
 
-export interface IState {
+export interface AppState {
   moviesList: IMovieItem[]
-  fetchingStatus: IFetchingStatus
-  sortingType: ISort
+  fetchingStatus: FetchingStatus
+  sortingType: Sort
   modal: IModal
 }
 
@@ -12,7 +12,7 @@ interface IModal {
   id: number | null
 }
 
-export interface IFetchingStatus {
+export interface FetchingStatus {
   isLoading: boolean
   errMessage: string
 }

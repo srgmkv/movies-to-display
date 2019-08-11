@@ -1,21 +1,23 @@
 import React from 'react'
 import Header from './Header'
 import { connect } from 'react-redux'
-import { IState } from '../interfaces'
+import { AppState } from '../interfaces'
 import { getMoviesData } from '../actions/fetching-actions'
 import MoviesList from '../Containers/MoviesList'
 import Modal from './Modal'
 
-interface IModal {
+interface AppStateProps {
    isModalShown: boolean
 }
 
-interface Props extends IModal {
-   getMoviesData: typeof getMoviesData
+interface AppDispatchProps {
+   getMoviesData: () => void
 }
 
+type AppProps = AppStateProps & AppDispatchProps
+
 //Компонент -точка входа
-class App extends React.Component<Props> {
+class App extends React.Component<AppProps> {
    componentDidMount() {
       this.props.getMoviesData() //запрашиваем данные на сервере
    }
@@ -30,7 +32,7 @@ class App extends React.Component<Props> {
    }
 }
 
-const mapStateToProps = (state: IState): IModal => ({
+const mapStateToProps = (state: AppState): AppStateProps => ({
    isModalShown: state.modal.isShown
 })
 

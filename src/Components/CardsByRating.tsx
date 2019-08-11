@@ -11,18 +11,17 @@ interface CardsByRating {
 const CardsByRating = ({ list }: CardsByRating) => {
 
   return (
-    <div className="sorted">
-      <div className="cards">
-        {list && list.map(item =>
-          <MovieItem
-            key={item.id}
-            localName={item.localized_name}
-            name={item.name}
-            rating={item.rating}
-            id={item.id}
-          />)}
-      </div>
+    <div className="cards">
+      {list && list.map(item =>
+        <MovieItem
+          key={item.id}
+          localName={item.localized_name}
+          name={item.name}
+          rating={item.rating}
+          id={item.id}
+        />)}
     </div>
+
   )
 }
 

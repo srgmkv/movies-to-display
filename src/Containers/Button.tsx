@@ -1,22 +1,29 @@
 import React from 'react'
+import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import { setSortingType, ISort } from '../actions/sorting-actions'
-import { IState } from '../interfaces'
+import { setSortingType, Sort, IActionSetSortingType } from '../actions/sorting-actions'
+import { AppState } from '../interfaces'
 import UpImg from '../Images/up.svg'
 import DownImg from '../Images/down.svg'
 import UpRedImg from '../Images/up-red.svg'
 import DownRedImg from '../Images/down-red.svg'
 
-interface Props extends OwnProps {
-  active?: boolean
-  onClick?: any
-}
-interface OwnProps {
-  sort: ISort
+interface ButtonOwnProps {
+  sort: Sort
 }
 
+interface ButtonStateProps extends ButtonOwnProps {
+  active: boolean
+}
+
+interface ButtonDispatchProps {
+  onClick: () => void
+}
+
+type ButtonProps = ButtonStateProps & ButtonDispatchProps
+
 //Компонент кнопки сортировки
-const Button = ({ active, sort, onClick }: Props) => {
+const Button = ({ active, sort, onClick }: ButtonProps) => {
 
   let ImgUrl: string; //здесь назначаем картинку кнопке сортировки
   if (!active && sort.endsWith('ASC')) {
@@ -40,12 +47,12 @@ const Button = ({ active, sort, onClick }: Props) => {
   )
 }
 
-const mapStateToProps = (state: IState, ownProps: OwnProps): { active: boolean, sort: ISort } => ({
+const mapStateToProps = (state: AppState, ownProps: ButtonOwnProps): ButtonStateProps => ({
   active: ownProps.sort === state.sortingType,
   sort: ownProps.sort
 })
 
-const mapDispatchToProps = (dispatch: any, ownProps: OwnProps): any => ({
+const mapDispatchToProps = (dispatch: Dispatch<IActionSetSortingType>, ownProps: ButtonOwnProps): ButtonDispatchProps => ({
   onClick: () => dispatch(setSortingType(ownProps.sort))
 })
 

@@ -1,20 +1,22 @@
 import React from 'react'
-import { IState, IMovieItem } from '../interfaces'
+import { AppState, IMovieItem } from '../interfaces'
 import { connect } from 'react-redux'
 import { hideModal } from '../actions/modal-actions'
 import './Modal.scss'
 
-interface IHideModal extends IModal {
+interface ModalDispatchProps {
   hideModal: typeof hideModal
 }
 
-interface IModal {
+interface ModalStateProps {
   moviesList: IMovieItem[]
   id: number | null
 }
 
+type ModalProps = ModalStateProps & ModalDispatchProps
+
 //Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
-class Modal extends React.Component<IHideModal> {
+class Modal extends React.Component<ModalProps> {
   componentDidMount() { //вешаем обработчик нажатия Esc
     document.addEventListener('keydown', this.hideModalOnEsc);
   }
@@ -61,7 +63,7 @@ class Modal extends React.Component<IHideModal> {
   }
 }
 
-const mapStateToProps = (state: IState): IModal => ({
+const mapStateToProps = (state: AppState): ModalStateProps => ({
   moviesList: state.moviesList,
   id: state.modal.id
 })

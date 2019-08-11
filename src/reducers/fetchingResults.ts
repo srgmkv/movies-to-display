@@ -1,5 +1,5 @@
 import { IFetchingActions } from '../actions/fetching-actions'
-import { IMovieItem, IFetchingStatus } from '../interfaces'
+import { IMovieItem, FetchingStatus } from '../interfaces'
 
 export const moviesList = (state: IMovieItem[] = [], action: IFetchingActions): IMovieItem[] => {
   switch (action.type) {
@@ -11,12 +11,12 @@ export const moviesList = (state: IMovieItem[] = [], action: IFetchingActions): 
   }
 }
 
-const initFetchingStatus: IFetchingStatus = {
+const initFetchingStatus: FetchingStatus = {
   isLoading: false,
   errMessage: ''
 }
 
-export const fetchingStatus = (state: IFetchingStatus = initFetchingStatus, action: IFetchingActions): IFetchingStatus => {
+export const fetchingStatus = (state: FetchingStatus = initFetchingStatus, action: IFetchingActions): FetchingStatus => {
   switch (action.type) {
 
     case 'DATA_REQUESTED':

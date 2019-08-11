@@ -1,6 +1,6 @@
-import { SortingActions, IActionsetSortingType, ISort } from '../actions/sorting-actions'
+import { SortingActions, IActionSetSortingType, Sort } from '../actions/sorting-actions'
 
-const sortingType = (state: ISort = SortingActions.SORT_BY_YEAR_ASC, action: IActionsetSortingType): ISort => {
+const sortingType = (state: Sort = SortingActions.SORT_BY_YEAR_ASC, action: IActionSetSortingType): Sort => {
   switch (action.type) {
     case 'SET_SORT_TYPE':
       return action.sort
