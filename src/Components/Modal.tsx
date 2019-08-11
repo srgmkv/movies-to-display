@@ -14,35 +14,53 @@ interface IModal {
 }
 
 //Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
-const Modal = ({ id, moviesList, hideModal }: IHideModal) => {
+class Modal extends React.Component<IHideModal> {
+  componentDidMount() {
 
-  const [movieItem] = moviesList.filter(item => item.id === id) //берем нужный фильм  по id из стейта
-  const { description, name, localized_name, year, rating, image_url } = movieItem //данные для рендера карточки фильма
+    console.log('modal mounted')
+    document.addEventListener('keydown', this.hideModalOnEsc);
+  }
 
-  return (
-    <div className="overlay" onClick={hideModal}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <div className="header">
-          <div className="back"
-            onClick={hideModal} />
-          <div className="local-name">{localized_name}</div>
-        </div>
-        <div className="info">
-          <div className="image">
-            <span >
-              {image_url && <img src={image_url} alt={name} />}
-            </span>
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.hideModalOnEsc);
+  }
+
+  hideModalOnEsc = (e: any) => {
+    if (e.key === 'Escape') {
+      this.props.hideModal()
+    }
+  }
+
+  render() {
+    const { id, moviesList, hideModal } = this.props
+    const [movieItem] = moviesList.filter(item => item.id === id) //берем нужный фильм  по id из стейта
+    const { description, name, localized_name, year, rating, image_url } = movieItem //данные для рендера карточки фильма
+
+    return (
+      <div className="overlay" onClick={hideModal}>
+        <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div className="header">
+            <div className="back"
+              onClick={hideModal} />
+            <div className="local-name">{localized_name}</div>
           </div>
-          <div className="list-info">
-            <div className="name">{name}</div>
-            <div className="year">Год: <span className="year">{year}</span></div>
-            <div className="rating">Рейтинг: <span className="rating">{rating}</span></div>
+          <div className="info">
+            <div className="image">
+              <span >
+                {image_url && <img src={image_url} alt={name} />}
+              </span>
+            </div>
+            <div className="list-info">
+              <div className="name">{name}</div>
+              <div className="year">Год: <span className="year">{year}</span></div>
+              <div className="rating">Рейтинг: <span className="rating">{rating}</span></div>
+            </div>
           </div>
+          <div className="description">{description}</div>
         </div>
-        <div className="description">{description}</div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 const mapStateToProps = (state: IState): IModal => ({
