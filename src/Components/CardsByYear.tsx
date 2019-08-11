@@ -15,7 +15,6 @@ interface CardsByYearProps {
 // Компонент рендерит набор блоков Год, внутри каждого будет список фильмов по этому году.
 // Ему передаем список фильмов из стейта и массив отсортированных годов.
 const CardsByYear = ({ list, years }: CardsByYearProps) => {
-
   return (
     <div className="movie-list">
 

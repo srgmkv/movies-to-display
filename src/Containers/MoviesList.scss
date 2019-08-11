@@ -2,62 +2,61 @@
   margin: 5px auto;
   padding: 1px;
 }
-  .year {
-    background-color: rgb(200, 243, 243);
-    text-align: center;
-    color: #555;
-    font-weight: 500;
-    padding: 2px;
-    border-radius: 3px;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 3px;
-    @media screen and (max-width: 500px) {
-      border-radius: 0;
-      width: 100%;
-    }
+.year {
+  background-color: rgb(200, 243, 243);
+  text-align: center;
+  color: #555;
+  font-weight: 500;
+  padding: 2px;
+  border-radius: 3px;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 3px;
+  @media screen and (max-width: 500px) {
+    border-radius: 0;
+    width: 100%;
   }
-  .cards {
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+
+  .movie-card {
     display: flex;
-    flex-direction: column;
+    background: #a5e9a5;
+    margin: 0 auto;
+    width: 70%;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+      0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    &:hover {
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.9), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    }
+    @media screen and (max-width: 500px) {
+      width: 97%;
+      margin-left: 5px;
+    }
 
-    .movie-card {
+    .names-block {
+      padding: 5px;
+
+      margin-bottom: 2px;
+      flex: 1;
+      background-color: rgb(255, 255, 255);
+
+      .name {
+        margin-top: 5px;
+        font-size: 0.75em;
+      }
+    }
+    .rating {
       display: flex;
-      background: #a5e9a5;
-      margin: 0 auto;
-      width: 70%;
-      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-      &:hover {
-        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.9), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-      }
-      @media screen and (max-width: 500px) {
-        width: 97%;
-        margin-left: 5px;
-      }
-
-      .names-block {
-        padding: 5px;
-
-        margin-bottom: 2px;
-        flex: 1;
-        background-color: rgb(255, 255, 255);
-
-        .name {
-          margin-top: 5px;
-          font-size: 0.75em;
-        }
-      }
-      .rating {
-        display: flex;
-        margin: auto;
-        color: rgb(3, 36, 66);
-        font-weight: bold;
-        div {
-          padding: 7px;
-        }
+      margin: auto;
+      color: rgb(3, 36, 66);
+      font-weight: bold;
+      div {
+        padding: 7px;
       }
     }
   }
-
+}

@@ -9,9 +9,8 @@ interface CardsByRating {
 
 //Компонент рендерит список фильмов при сортировке по рейтингу
 const CardsByRating = ({ list }: CardsByRating) => {
-
   return (
-    <div className="cards">
+    <div className="cards" style={{ marginBottom: '5px' }}>
       {list && list.map(item =>
         <MovieItem
           key={item.id}
@@ -21,7 +20,6 @@ const CardsByRating = ({ list }: CardsByRating) => {
           id={item.id}
         />)}
     </div>
-
   )
 }
 
