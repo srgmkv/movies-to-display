@@ -32,12 +32,14 @@ $radius: 8px;
     max-width: 90%;
   }
   .header {
-    height: auto;
     display: flex;
     background-color: rgb(211, 240, 240);
     padding: 10px;
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
+    @media screen and (max-width: 430px) {
+      border-radius: 0;
+    }
     .back {
       background-image: url(../Images/back1.svg);
       background-size: contain;
