@@ -15,9 +15,7 @@ interface IModal {
 
 //Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
 class Modal extends React.Component<IHideModal> {
-  componentDidMount() {
-
-    console.log('modal mounted')
+  componentDidMount() { //вешаем обработчик нажатия Esc
     document.addEventListener('keydown', this.hideModalOnEsc);
   }
 
