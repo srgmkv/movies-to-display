@@ -15,13 +15,13 @@ interface IModal {
 
 //Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
 const Modal = ({ id, moviesList, hideModal }: IHideModal) => {
-  
+
   const [movieItem] = moviesList.filter(item => item.id === id) //берем нужный фильм  по id из стейта
   const { description, name, localized_name, year, rating, image_url } = movieItem //данные для рендера карточки фильма
 
   return (
     <div className="overlay" onClick={hideModal}>
-      <div className="modal">
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="header">
           <div className="back"
             onClick={hideModal} />
