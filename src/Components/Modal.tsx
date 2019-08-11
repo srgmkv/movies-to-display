@@ -23,7 +23,7 @@ class Modal extends React.Component<IHideModal> {
     document.removeEventListener('keydown', this.hideModalOnEsc);
   }
 
-  hideModalOnEsc = (e: any) => {
+  hideModalOnEsc = (e: { key: string }) => {
     if (e.key === 'Escape') {
       this.props.hideModal()
     }
