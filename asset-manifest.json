@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/movies-to-display/static/css/main.0569c2ee.chunk.css",
+    "main.css": "/movies-to-display/static/css/main.4b2a13b1.chunk.css",
     "main.js": "/movies-to-display/static/js/main.eb49f588.chunk.js",
     "main.js.map": "/movies-to-display/static/js/main.eb49f588.chunk.js.map",
     "runtime~main.js": "/movies-to-display/static/js/runtime~main.beb2e9a7.js",
@@ -8,9 +8,9 @@
     "static/js/2.05a3927a.chunk.js": "/movies-to-display/static/js/2.05a3927a.chunk.js",
     "static/js/2.05a3927a.chunk.js.map": "/movies-to-display/static/js/2.05a3927a.chunk.js.map",
     "index.html": "/movies-to-display/index.html",
-    "precache-manifest.4648192d6ec0f3c9912d164149cdc92a.js": "/movies-to-display/precache-manifest.4648192d6ec0f3c9912d164149cdc92a.js",
+    "precache-manifest.248cd37747e091f1fc561e0c3aed465e.js": "/movies-to-display/precache-manifest.248cd37747e091f1fc561e0c3aed465e.js",
     "service-worker.js": "/movies-to-display/service-worker.js",
-    "static/css/main.0569c2ee.chunk.css.map": "/movies-to-display/static/css/main.0569c2ee.chunk.css.map",
+    "static/css/main.4b2a13b1.chunk.css.map": "/movies-to-display/static/css/main.4b2a13b1.chunk.css.map",
     "static/media/Modal.scss": "/movies-to-display/static/media/back1.b14aecc1.svg",
     "static/media/down-red.svg": "/movies-to-display/static/media/down-red.3d5f02f9.svg",
     "static/media/down.svg": "/movies-to-display/static/media/down.9b396690.svg",
