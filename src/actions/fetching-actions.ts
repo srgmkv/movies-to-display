@@ -24,7 +24,7 @@ export function dataRequested(): IActionDataRequested {
 
 export function getMoviesData(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
   return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
-    //dispatch(dataRequested())
+    dispatch(dataRequested())
 
     const url = "https://s3-eu-west-1.amazonaws.com/sequeniatesttask/films.json"
     const backupUrl = "https://raw.githubusercontent.com/srgmkv/movies-to-display/master/public/films-backup.json"
