@@ -5,6 +5,7 @@ import { AppState } from '../interfaces'
 import { getMoviesData } from '../actions/fetching-actions'
 import MoviesList from '../Containers/MoviesList'
 import Modal from './Modal'
+import { Route, Switch } from 'react-router-dom'
 
 interface AppStateProps {
    isModalShown: boolean
@@ -26,7 +27,11 @@ class App extends React.Component<AppProps> {
       return (
          <div className="App">
             <Header />
-            {!this.props.isModalShown ? <MoviesList /> : <Modal />} {/* показываем фильмов || модальное окно по флагу из стейта */}
+            <Switch>
+            <Route path="/" exact component={MoviesList} />
+            <Route path="/movies/:movieId" exact component={Modal} />
+            {/*!this.props.isModalShown ? <MoviesList /> : <Modal />*/} {/* показываем фильмов || модальное окно по флагу из стейта */}
+            </Switch>
          </div>
       )
    }

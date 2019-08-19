@@ -21,7 +21,10 @@
 .cards {
   display: flex;
   flex-direction: column;
-
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
   .movie-card {
     display: flex;
     background: #a5e9a5;
