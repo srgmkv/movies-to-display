@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import thunk from 'redux-thunk';
 import './index.scss'
 
-import App from './Components/App';
+import App from './Containers/App';
 import reducer from './reducers/index'
 
 const store = createStore(

@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from './Header'
+import Header from '../Components/Header'
 import { connect } from 'react-redux'
 import { AppState } from '../interfaces'
 import { getMoviesData } from '../actions/fetching-actions'
-import MoviesList from '../Containers/MoviesList'
+import MoviesList from './MoviesList'
 import Modal from './Modal'
 import { Route, Switch } from 'react-router-dom'
 
@@ -28,9 +28,8 @@ class App extends React.Component<AppProps> {
          <div className="App">
             <Header />
             <Switch>
-            <Route path="/" exact component={MoviesList} />
-            <Route path="/movies/:movieId" exact component={Modal} />
-            {/*!this.props.isModalShown ? <MoviesList /> : <Modal />*/} {/* показываем фильмов || модальное окно по флагу из стейта */}
+               <Route path="/movies/:movieId" exact component={Modal} />
+               <Route path="/" exact component={MoviesList} />
             </Switch>
          </div>
       )

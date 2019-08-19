@@ -1,64 +1,24 @@
 import React from 'react'
-import { AppState, IMovieItem } from '../interfaces'
-import { connect } from 'react-redux'
-import { hideModal } from '../actions/modal-actions'
+import { IMovieItem } from '../interfaces'
 import './Modal.scss'
 import { Link } from 'react-router-dom'
 
 
-interface ModalDispatchProps {
-  hideModal: typeof hideModal
+interface ModalProps {
+  item: IMovieItem
 }
-interface Params {
-  movieId: string
-}
-
-interface Match {
-  params: Params
-  path: string
-  url: string
-}
-
-interface ModalStateProps {
-  moviesList: IMovieItem[]
-  id: number | null
-  match: Match
-}
-
-type ModalProps = ModalStateProps & ModalDispatchProps
 
 //Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
-class Modal extends React.Component<ModalProps> {
-  componentDidMount() { //вешаем обработчик нажатия Esc
-    document.addEventListener('keydown', this.hideModalOnEsc);
-  }
+const Modal = (props: ModalProps) => {
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.hideModalOnEsc);
-  }
+  const { description, name, localized_name, year, rating, image_url } = props.item
 
-  hideModalOnEsc = (e: { key: string }) => {
-    if (e.key === 'Escape') {
-      this.props.hideModal()
-    }
-  }
-
-  render() {
-    const { moviesList, hideModal, match } = this.props
-    console.log('match', match.params.movieId)
-    let movieItem, description, name, localized_name, year, rating, image_url
-    if (moviesList.length > 0) {
-      [movieItem] = moviesList.filter(item => item.id === Number(match.params.movieId)); //берем нужный фильм  по id из стейта
-      //console.log('movieItem', movieItem)
-      ({ description, name, localized_name, year, rating, image_url } = movieItem) //данные для рендера карточки фильма
-    }
-    return (
-      moviesList.length > 0 &&
-      <>
-        <div className="overlay" >
+  return (
+   
+        <div className="overlay">
           <div className="modal" onClick={(e) => e.preventDefault()}>
             <div className="header">
-              <Link to=""><div className="back" /></Link>
+              <Link to="/"><div className="back" /></Link>
               <div className="local-name">{localized_name}</div>
             </div>
             <div className="info">
@@ -76,19 +36,7 @@ class Modal extends React.Component<ModalProps> {
             <div className="description">{description}</div>
           </div>
         </div>
-
-      </>
-    )
-  }
+  )
 }
 
-interface ownProps {
-  match: Match
-}
-const mapStateToProps = (state: AppState, ownProps: ownProps): ModalStateProps => ({
-  moviesList: state.moviesList,
-  id: state.modal.id,
-  match: ownProps.match
-})
-
-export default connect(mapStateToProps, { hideModal })(Modal)
+export default Modal

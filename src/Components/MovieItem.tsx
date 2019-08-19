@@ -14,7 +14,7 @@ interface MovieItemProps {
 //Компонент рендерит карточку фильма для списка фильмов
 const MovieItem = ({ localName, name, rating, id, showModal }: MovieItemProps) => {
 
-  return (<Link to={`movies/${id}`}>
+  return (<Link to={`/movies/${id}`}>
     <div className="movie-card"
       onClick={() => showModal(id)}
     >
