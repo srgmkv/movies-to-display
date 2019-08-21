@@ -2,7 +2,7 @@ import React from 'react'
 import { AppState, IMovieItem } from '../interfaces'
 import { connect } from 'react-redux'
 import { hideModal } from '../actions/modal-actions'
-import ModalView from '../Components/Modal'
+import ModalView from '../Components/ModalView'
 
 interface ModalDispatchProps {
   hideModal: typeof hideModal

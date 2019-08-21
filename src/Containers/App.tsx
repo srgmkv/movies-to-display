@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Components/Header'
 import { connect } from 'react-redux'
 import { AppState } from '../interfaces'
 import { getMoviesData } from '../actions/fetching-actions'
@@ -26,7 +25,6 @@ class App extends React.Component<AppProps> {
    render() {
       return (
          <div className="App">
-            <Header />
             <Switch>
                <Route path="/movies/:movieId" exact component={Modal} />
                <Route path="/" exact component={MoviesList} />

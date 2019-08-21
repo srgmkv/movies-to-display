@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Sort, SortingActions } from '../actions/sorting-actions'
 import CardsByRating from '../Components/CardsByRating'
 import CardsByYear from '../Components/CardsByYear'
+import Header from '../Components/Header'
 import './MoviesList.scss'
 
 interface MovieListProps {
@@ -50,6 +51,7 @@ const MovieList = ({ moviesList, errMessage, sort }: MovieListProps) => {
 
   return (
     <>
+      <Header />
       {errMessage && <p className="error">{errMessage}</p>} {/* Выводим ошибки */}
       {getSortedMovies(moviesList, sort)} {/* Рендерим список с нужной сортировкой */}
     </>
