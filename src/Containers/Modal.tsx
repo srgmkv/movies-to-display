@@ -23,10 +23,8 @@ interface ModalStateProps {
   match: Match
 }
 
-
 type ModalProps = ModalStateProps & ModalDispatchProps
 
-//Модальное окно, вызывается кликом по фильму в списке с информацией о фильме 
 class Modal extends React.Component<ModalProps> {
 
    render() {
@@ -40,19 +38,18 @@ class Modal extends React.Component<ModalProps> {
       return <ModalView item={movieItem} />
     }
 
-    return <div>Loading...</div>
+    return <div className="loader">Loading...</div>
   }
 }
 
 interface ownProps {
   match: Match
 }
+
 const mapStateToProps = (state: AppState, ownProps: ownProps): ModalStateProps => ({
   moviesList: state.moviesList,
   id: state.modal.id,
   match: ownProps.match
 })
-
-
 
 export default connect(mapStateToProps)(Modal)

@@ -27,7 +27,7 @@ class App extends React.Component<AppProps> {
          <div className="App">
             <Switch>
                <Route path="/movies/:movieId" exact component={Modal} />
-               <Route path="/" exact component={MoviesList} />
+               <Route path="/" component={MoviesList} />
             </Switch>
          </div>
       )
